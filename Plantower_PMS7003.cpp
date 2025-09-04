@@ -17,12 +17,6 @@ Plantower_PMS7003::Plantower_PMS7003() {
   debug = false;
 }
 
-
-void Plantower_PMS7003::init() {
-  Serial1.begin(9600);
-  init(&Serial1);  
-}
-
 void Plantower_PMS7003::init(Stream *s) {
   dataReady = false;
   serial = s;

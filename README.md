@@ -49,7 +49,7 @@ Connecting the PMS7003 to a compatible 3.3v device requires 4 pins:
  - Connect microcontroller +5v VCC or USB to pin 1 (VCC).
  - Connect microcontroller GND to pin 3  (GND).
  - Connect microcontroller TX to pin 7 (RX).
- - Connect microcontroller RC to pin 9 (TX).
+ - Connect microcontroller RX to pin 9 (TX).
 
 ## Usage
 
@@ -94,6 +94,17 @@ Connecting the PMS7003 to a compatible 3.3v device requires 4 pins:
     }
 
 A full example can be found in pms_7003_test.ino.
+
+## Note on Uno R3 compatibility
+
+Uno R3 has a single serial port, so the existing example will not work for it - you cannot use USB
+and TX/RX pins simultaneously. To fix this and allow monitoring of the sensor data via USB during testing
+you can use [SoftwareSerial](https://docs.arduino.cc/learn/built-in-libraries/software-serial/) library.
+
+ - Connect microcontroller pin 3 to pin 7 (RX).
+ - Connect microcontroller pin 2 to pin 9 (TX).
+
+and use pms_7003_unoR3_test as an example.
 
 
 ## License
